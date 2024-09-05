@@ -7343,6 +7343,7 @@ fieldset:disabled .btn {
     margin-right: 3rem !important;
     margin-left: 3rem !important;
 }
+
 .mx-auto {
     margin-right: auto !important;
     margin-left: auto !important;
@@ -7522,8 +7523,8 @@ fieldset:disabled .btn {
     padding-bottom: 1.5rem !important;
 }
 .py-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding-top: 46px !important;
+    padding-bottom: 45px !important;
 }
 .pt-0 {
     padding-top: 0 !important;

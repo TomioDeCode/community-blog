@@ -32,23 +32,42 @@ Route::get("/mahasiswa/fasilkom/anto", function () {
     echo '<h2 style="text-align: center"><u>Welcome Anton</u></h2>';
 });
 
+// SMKN Routes
+
+Route::get("/siswa", function () {
+    $arrSiswa = [
+        "Niam",
+        "Adi",
+        "Abi",
+        "Verdi"
+    ];
+    return view("smkn.siswa")->with('siswa', $arrSiswa);
+});
+
+Route::get('/guru', function () {
+    $arrGuru = [
+        "Bu Dian",
+        "Pak Ananda",
+        "Pak Rofik",
+        "Pak Slamet"
+    ];
+    return view("smkn.guru")->with("guru", $arrGuru);
+});
+
+Route::get("/gallery", function () {
+    return view("smkn.gallery");
+});
+
+Route::get("/admin", function () {
+    return view("smkn.admin");
+})->name('gambar');
+
 // Route Parameter
 
 Route::get('/mahasiswa', function () {
-    $arrMahasiswa = [
-        "Risa Lestari",
-        "Rudi Hermawan",
-        "Bambang Kusumo",
-        "Lisa Permata"
-    ];
-    return view('universitas.mahasiswa', ['mahasiswa' => $arrMahasiswa]);
-});
-
-Route::get("/siswa/{nama}/{umur}/{kota}", function ($nama, $umur, $kota) {
-    return view("smkn.siswa")
-        ->with('nama', $nama)
-        ->with('umur', $umur)
-        ->with('kota', $kota);
+    $nama = "Muhammad Syamsu Niam";
+    $nilai = [80, 64, 30, 76, 95];
+    return view('universitas.mahasiswa', compact('nama', 'nilai'));
 });
 
 Route::get("/mahasiswa/{nama}", function ($nama) {
@@ -58,6 +77,11 @@ Route::get("/mahasiswa/{nama}", function ($nama) {
 Route::get('/stok_barang/{jenis}/{merek}', function ($a, $b) {
     echo "Cek sisa stok untuk $a $b";
 });
+
+Route::get('/informasi/{fakultas}/{jurusan}', function ($fakultas, $jurusan) {
+    $data = [$fakultas, $jurusan];
+    return view('smkn.informasi')->with('data', $data);
+})->name('info');
 
 // Route Opsional Parameter
 
