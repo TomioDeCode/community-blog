@@ -35,16 +35,13 @@ Route::get("/mahasiswa/fasilkom/anto", function () {
 // Route Parameter
 
 Route::get('/mahasiswa', function () {
-    $mahasiswa01 = "Risa Lestari";
-    $mahasiswa02 = "Rudi Hermawan";
-    $mahasiswa03 = "Bambang Kusumo";
-    $mahasiswa04 = "Lisa Permata";
-    return view('universitas.mahasiswa')->with(compact(
-        "mahasiswa01",
-        "mahasiswa02",
-        "mahasiswa03",
-        "mahasiswa04"
-    ));
+    $arrMahasiswa = [
+        "Risa Lestari",
+        "Rudi Hermawan",
+        "Bambang Kusumo",
+        "Lisa Permata"
+    ];
+    return view('universitas.mahasiswa', ['mahasiswa' => $arrMahasiswa]);
 });
 
 Route::get("/siswa/{nama}/{umur}/{kota}", function ($nama, $umur, $kota) {
